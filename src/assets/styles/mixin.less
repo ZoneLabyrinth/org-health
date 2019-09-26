@@ -40,17 +40,14 @@
 }
 
 
-.bg-img(@url) {
+
+.bg-img(@url){
     background-size: 100%;
     background-image: data-uri('@{url}.png');
-    // background-image: data-uri('@{url}');
-
-    @media (-webkit-min-device-pixel-ration: 2), (min-device-pixel-ratio: 2) {
+    @media (-webkit-min-device-pixel-ration: 2),(min-device-pixel-ratio: 2){
         background-image: url('@{url}@2x.png')
-        // background-image: data-uri(@url);
     }
 }
-
 
 .multi-ellipsis{
     content: "...";

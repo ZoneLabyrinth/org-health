@@ -1,14 +1,91 @@
-.org-card{
+@import url('../assets/styles/mixin.less');
+
+
+.org-card {
     &-background {
-        width: 100%;
-        height: 620px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        background: linear-gradient(180deg,rgba(224,32,32,1) 0%,rgba(255,177,177,1) 68%,rgba(255,255,255,1) 100%)
+        width     : 100%;
+        height    : 620px;
+        position  : absolute;
+        top       : 0;
+        z-index   : -1;
+        background: linear-gradient(180deg, rgba(224, 32, 32, 1) 0%, rgba(255, 177, 177, 1) 68%, rgba(255, 255, 255, 1) 100%)
     }
-    &-margin{
-        margin: 34px;
+
+    &-margin {
+        // position: relative;
+        margin-top   : 34px;
+        margin-bottom: 62px;
+        overflow     : hidden;
+
+    }
+
+    &-title {
+        width     : 356px;
+        height    : 260px;
+        margin    : 64px auto;
+        text-align: center;
+        overflow  : hidden;
+
+        .bg-img('../images/home/title');
+
+        &>p {
+            margin-top: 84px;
+
+            &>[data-title] {
+                font-size  : 28px;
+                line-height: 40px;
+                color      : #858E9F
+            }
+
+            &>[data-item] {
+                font-size  : 56px;
+                line-height: 80px;
+
+            }
+        }
+    }
+
+    &-badge {
+        .flex(@dir: row);
+        margin    : 0 56px 100px;
+
+        &>li {
+            flex      : 1;
+            .flex(@dir: column);
+            text-align: center;
+
+            p {
+                margin: 5px;
+            }
+
+            p:first-child {
+                font-size: 26px;
+                color    : #858E9F;
+            }
+
+            p:nth-child(2) {
+                font-size  : 32px;
+                color      : #0F1D37;
+                font-weight: bold;
+            }
+
+            p:last-child {
+                width        : 22px;
+                height       : 10px;
+                background   : #E14C46;
+                border-radius: 6px;
+            }
+        }
+    }
+    &-tab{
+        position: absolute;
+        top: -44px;
+        width:274px;
+        height:88px;
+        line-height: 88px;
+        text-align: center;
+        font-size:30px;
+        background:rgba(225,76,70,1);
+        border-radius:14px;
     }
 }
