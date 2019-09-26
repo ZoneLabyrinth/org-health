@@ -1,4 +1,4 @@
 
-export const apiconfig = {
+export default apiconfig = {
     getusers: '/users',
 };

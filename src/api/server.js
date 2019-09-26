@@ -31,12 +31,12 @@ export default class Server {
                 },
             };
 
-            axios.interceptors.request.use((config) =>
+            axios.interceptors.request.use((configs) =>
             // 使用JWT情况
             // if(localStorage.token){
             //     config.headers.Authorization = `Bearer ${localStorage.token}`
             // }
-                config);
+                configs);
 
             axios.interceptors.response.use((res) => res, (err) => {
                 if (err.response) {
