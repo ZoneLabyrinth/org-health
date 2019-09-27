@@ -12,10 +12,12 @@
     }
 
     &-margin {
-        // position: relative;
+        position: absolute;
+        width: 682px;
+        height: 598px;
         margin-top   : 34px;
         margin-bottom: 62px;
-        overflow     : hidden;
+        // overflow     : hidden;
 
     }
 
@@ -77,15 +79,25 @@
             }
         }
     }
+    &-tabcontinaer{
+        position: relative;
+        margin: 0 53px;
+    }
     &-tab{
-        position: absolute;
-        top: -44px;
+        position: relative;
+        float: left;
+        bottom: 44px;
+        color: white;
         width:274px;
         height:88px;
+        margin: 0px;
         line-height: 88px;
         text-align: center;
         font-size:30px;
         background:rgba(225,76,70,1);
         border-radius:14px;
+    }
+    &-tab:not(:last-child){
+        margin-right: 28px;
     }
 }

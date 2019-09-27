@@ -19,31 +19,34 @@ function Home() {
                     <li>
                         <p>总部均值</p>
                         <p>150000</p>
-                        <p></p>
+                        <p />
                     </li>
                     <li>
                         <p>基准值</p>
                         <p>150000</p>
-                        <p></p>
+                        <p />
                     </li>
                     <li>
                         <p>周期值</p>
                         <p>150000</p>
-                        <p></p>
+                        <p />
                     </li>
                     <li>
                         <p>排名</p>
                         <p>150000</p>
-                        <p></p>
+                        <p />
                     </li>
                 </ul>
-                <CardContainer classNames="org-card-tab">
-                    收入完成率
-                </CardContainer>
-                <CardContainer classNames="org-card-tab">
-                    成本费用完成率
-                </CardContainer>
+                <div className="org-card-tabcontinaer">
+                    <CardContainer classNames="org-card-tab">
+                        收入完成率
+                    </CardContainer>
+                    <CardContainer classNames="org-card-tab">
+                        成本费用完成率
+                    </CardContainer>
+                </div>
             </CardContainer>
+            
         </>
     );
 }
