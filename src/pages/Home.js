@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import CardContainer from '@/CardContainer';
 import 'src/assets/styles/reset.less';
 import './Home.less';
+import TabBar from '@/TabBar';
+import CardMenu from '@/CardMenu';
 
 function Home() {
     return (
@@ -37,16 +40,31 @@ function Home() {
                         <p />
                     </li>
                 </ul>
-                <div className="org-card-tabcontinaer">
-                    <CardContainer classNames="org-card-tab">
-                        收入完成率
-                    </CardContainer>
-                    <CardContainer classNames="org-card-tab">
-                        成本费用完成率
-                    </CardContainer>
-                </div>
             </CardContainer>
-            
+            <div className="org-card-tabcontinaer">
+                <CardContainer classNames="org-card-tab">
+                    <Link to="/faq">
+                        收入完成率
+                    </Link>
+                </CardContainer>
+                <CardContainer classNames="org-card-tab">
+                    成本费用完成率
+                </CardContainer>
+            </div>
+            <div className="org-tabs-container">
+                <div className="org-tabs-item org-tabs-actives" data-item='1'>
+                    收款收入
+                </div>
+                <div className="org-tabs-item" data-item='2'>
+                    权责收入
+                </div>
+                <div className="org-tabs-item" data-item='3'>
+                    业务管理
+                </div>
+                <p className="org-tabs-line" />
+            </div>
+            <CardMenu />
+
         </>
     );
 }

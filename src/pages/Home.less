@@ -3,30 +3,31 @@
 
 .org-card {
     &-background {
-        width     : 100%;
-        height    : 620px;
-        position  : absolute;
-        top       : 0;
-        z-index   : -1;
+        width: 100%;
+        height: 620px;
+        position: absolute;
+        top: 0;
+        z-index: -1;
         background: linear-gradient(180deg, rgba(224, 32, 32, 1) 0%, rgba(255, 177, 177, 1) 68%, rgba(255, 255, 255, 1) 100%)
     }
 
     &-margin {
-        position: absolute;
-        width: 682px;
-        height: 598px;
-        margin-top   : 34px;
-        margin-bottom: 62px;
-        // overflow     : hidden;
+        // position: absolute;
+        // width: 682px;
+        // height: 598px;
+        margin-top: 34px;
+        // margin-bottom: 62px;
+        overflow: hidden;
 
     }
 
     &-title {
-        width     : 356px;
-        height    : 260px;
-        margin    : 64px auto;
+        position: relative;
+        width: 356px;
+        height: 260px;
+        margin: 64px auto;
         text-align: center;
-        overflow  : hidden;
+        overflow: hidden;
 
         .bg-img('../images/home/title');
 
@@ -34,13 +35,13 @@
             margin-top: 84px;
 
             &>[data-title] {
-                font-size  : 28px;
+                font-size: 28px;
                 line-height: 40px;
-                color      : #858E9F
+                color: #858E9F
             }
 
             &>[data-item] {
-                font-size  : 56px;
+                font-size: 56px;
                 line-height: 80px;
 
             }
@@ -49,10 +50,10 @@
 
     &-badge {
         .flex(@dir: row);
-        margin    : 0 56px 100px;
+        margin: 0 56px 100px;
 
         &>li {
-            flex      : 1;
+            flex: 1;
             .flex(@dir: column);
             text-align: center;
 
@@ -62,42 +63,84 @@
 
             p:first-child {
                 font-size: 26px;
-                color    : #858E9F;
+                color: #858E9F;
             }
 
             p:nth-child(2) {
-                font-size  : 32px;
-                color      : #0F1D37;
+                font-size: 32px;
+                color: #0F1D37;
                 font-weight: bold;
             }
 
             p:last-child {
-                width        : 22px;
-                height       : 10px;
-                background   : #E14C46;
+                width: 22px;
+                height: 10px;
+                background: #E14C46;
                 border-radius: 6px;
             }
         }
     }
-    &-tabcontinaer{
+
+    &-tabcontinaer {
         position: relative;
-        margin: 0 53px;
-    }
-    &-tab{
-        position: relative;
-        float: left;
+        margin: 0 87px;
         bottom: 44px;
+        overflow: hidden;
+    }
+
+    &-tab {
+        float: left;
         color: white;
-        width:274px;
-        height:88px;
+        width: 274px;
+        height: 88px;
         margin: 0px;
         line-height: 88px;
         text-align: center;
-        font-size:30px;
-        background:rgba(225,76,70,1);
-        border-radius:14px;
+        font-size: 30px;
+        background: #fff;
+        border-radius: 14px;
+        color: #858E9F;
+
+        &:not(:last-child) {
+            margin-right: 28px;
+            color: white;
+            background: rgba(225, 76, 70, 1);
+        }
     }
-    &-tab:not(:last-child){
-        margin-right: 28px;
+}
+
+//tabs
+.org-tabs {
+    &-container {
+        margin-left: 14px;
+        padding-bottom: 20px;
+        position: relative;
+        .flex(@dir: row, @justify: flex-start);
+    }
+
+    &-item {
+        // flex:1;
+        color: #858E9F;
+        margin-left: 38px;
+        font-weight: 500;
+        line-height: 44px;
+        font-size: 32px;
+    }
+
+    &-actives {
+        font-size: 36px;
+        line-height: 50px;
+        color: #0F1D37;
+    }
+
+    &-line {
+        width: 90px;
+        height: 10px;
+        background: #E14C46;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 10px;
+        left: 66px;
+        transition: left 1s linear;
     }
 }
