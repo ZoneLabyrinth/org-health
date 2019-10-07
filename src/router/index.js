@@ -1,9 +1,15 @@
-// import Users from '@/Users'
+import Home from 'pages/Home';
+import IndexRank from 'pages/IndexRank';
 
 const routers = [
     {
-        path: '/users',
-        // component: Users
+        path: '/home',
+        component: Home,
+        exact: true,
+    },
+    {
+        path: '/indexRank',
+        component: IndexRank,
     },
 ];
 

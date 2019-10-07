@@ -1,0 +1,33 @@
+@import url('../assets/styles/mixin.less');
+
+.org-tab {
+    &-container {
+        .flex(@dir: row);
+        height:80px;
+        background: #fff;
+    }
+
+    &-item {
+        flex      : 1;
+        text-align: center;
+        line-height: 44px;
+        font-size: 30px;
+        color: #858E9F;
+    }
+
+    &-actived {
+        position: relative;
+        font-size: 32px;
+        font-weight: 500;
+        color: #0F1D37;
+        &::after {
+            content   : '';
+            width     : 40%;
+            background: linear-gradient(90deg,rgba(242,131,124,1) 0%,rgba(225,76,70,1) 100%);;
+            height    : 8px;
+            position  : absolute;
+            bottom    : -10px;
+            left      : 30%;
+        }
+    }
+}

@@ -5,11 +5,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from './store/index';
 import Home from './pages/Home';
 // import 'regenerator-runtime/runtime';
+import IndexPage from './IndexPage';
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <Home />
+            <IndexPage />
         </Router>
     </Provider>,
     document.getElementById('root'),

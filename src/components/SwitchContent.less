@@ -1,0 +1,32 @@
+@import url('../assets/styles/mixin.less');
+
+.org-switch {
+    &-container {
+        width        : 168px;
+        height       : 50px;
+        border-radius: 28px;
+        border       : 2px solid rgba(221, 221, 221, 1);
+        background   : #fff;
+        position     : relative;
+    }
+
+    &-item {
+        position        : absolute;
+        width           : 98px;
+        height          : 50px;
+        // flex         : 1;
+        left            : 0;
+        border-radius   : 28px;
+        text-align      : center;
+        line-height     : 50px;
+
+        &:not(:first-child) {
+            left: calc(50%-14px);
+        }
+    }
+
+    &-actived {
+        background : #EFF0F1;
+        font-weight: 600;
+    }
+}

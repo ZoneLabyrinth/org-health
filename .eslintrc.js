@@ -23,5 +23,8 @@ module.exports = {
         "no-mixed-spaces-and-tabs": "off",    
         "react/prefer-stateless-function": 0,
         "import/no-unresolved": 0,
+        "no-extraneous-dependencies": 0,
+        "react/no-array-index-key": 0,
+        "react/jsx-indent-props": [2, 4],
     }
 }
