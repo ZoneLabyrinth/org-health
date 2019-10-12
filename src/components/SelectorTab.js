@@ -8,12 +8,16 @@ function SelectorTab(props) {
             <div className="select-tab-wrapper">
                 <div>
                     <div className="select-tab-item">
-                        净贡献完成率 <Icon type="down" />
+                        净贡献完成率
+                        {' '}
+                        <Icon type="down" />
                     </div>
                 </div>
                 <div>
                     <div className="select-tab-item">
-                        净贡献完成率 <Icon type="down" />
+                        净贡献完成率
+                        {' '}
+                        <Icon type="down" />
                     </div>
                 </div>
                 <div>
@@ -33,8 +37,7 @@ function SelectorTab(props) {
                 </li>
             </ul> */}
         </div>
-    )
-
+    );
 }
 
 export default SelectorTab;

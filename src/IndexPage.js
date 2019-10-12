@@ -6,7 +6,6 @@ import routers from 'src/router/index';
 function IndexPage(props) {
     return (
         <>
-
             <Switch>
                 {
                     routers.map((router, key) => (
@@ -14,9 +13,9 @@ function IndexPage(props) {
                             path={router.path}
                             key={key}
                             exact={router.exact}
-                        >
-                            {router.component}
-                        </Route>
+                            render={(props) => <router.component {...props} />}
+                        />
+
                     ))
                 }
                 <Redirect from="/" to="/indexRank" />

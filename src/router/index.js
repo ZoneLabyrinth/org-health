@@ -1,5 +1,5 @@
 import Home from 'pages/Home';
-import IndexRank from 'pages/IndexRank';
+import IndexRank from 'pages/ranking/IndexRank';
 
 const routers = [
     {
