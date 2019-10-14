@@ -19,14 +19,17 @@
         border-radius   : 28px;
         text-align      : center;
         line-height     : 50px;
+        transition      : all .5s;
 
-        &:not(:first-child) {
+        &:last-child {
             left: calc(50%-14px);
+        }
+        &:first-child{
+            background : #EFF0F1;
         }
     }
 
     &-actived {
-        background : #EFF0F1;
-        font-weight: 600;
+        left: calc(50%-14px);
     }
 }

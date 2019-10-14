@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SwitchContent.less';
 
 function SwitchContent() {
 
+    const menu = [
+        { label: '表', value: '' },
+        { label: '图', value: '' }
+    ]
+
+    const [curIndex, setCurIndex] = useState(0)
+
+    function switchItem(index) {
+        setCurIndex(index)
+    }
 
 
     return (
         <div className="org-switch-container">
-            <div className="org-switch-item org-switch-actived">
-                表
+            {/* 背景移动 */}
+            <div className={`org-switch-item ${curIndex ? "org-switch-actived":''}`}>
             </div>
-            <div className="org-switch-item">
-                图
-            </div>
+            {
+                menu.map((item,index) => (
+                    <div onClick={switchItem.bind(this,index)} style={{fontWeight:`${index === curIndex ? 600: 400}`}} className="org-switch-item">
+                        {item.label}
+                    </div>
+                ))
+            }
         </div>
     );
 }
