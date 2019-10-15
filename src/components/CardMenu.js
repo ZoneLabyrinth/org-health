@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './CardMenu.less';
 import { Card } from 'antd-mobile';
 import bg from '../assets/images/home/productLine@2x.png';
 
-function CardMenu(props) {
+function CardMenu() {
     return (
         <div className="org-cardMenu-container">
             {/* <WingBlank size="lg">
@@ -28,9 +28,9 @@ function CardMenu(props) {
 
     );
 }
-CardMenu.PropsType = {
+// CardMenu.PropsType = {
 
-};
+// };
 
 
 export default CardMenu;

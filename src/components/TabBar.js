@@ -9,24 +9,20 @@ const nav = [
 ];
 
 
+export default function TarBar() {
+    const [data, setData] = useState(nav[0]);
 
-export default function TarBar(props) {
-
-
-    const [data,setData] = useState(nav[0])
-
-    function selectItem(item){
-        console.log(item);
-        setData(item)
+    function selectItem(item) {
+        // console.log(item);
+        setData(item);
     }
-    
-    
-    
+
+
     return (
         <div className="org-tab-container">
             {
                 nav.map((item, key) => (
-                    <div onClick={selectItem.bind(this,item)} key={key} className={`org-tab-item ${data.title===item.title?"org-tab-actived":""}`}>
+                    <div onClick={selectItem.bind(this, item)} key={key} className={`org-tab-item ${data.title === item.title ? 'org-tab-actived' : ''}`}>
                         {item.title}
                     </div>
                 ))

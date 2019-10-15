@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import routers from 'src/router/index';
 
 
-function IndexPage(props) {
+function IndexPage() {
     return (
         <>
             <Switch>
@@ -13,7 +13,8 @@ function IndexPage(props) {
                             path={router.path}
                             key={key}
                             exact={router.exact}
-                            render={(props) => <router.component {...props} />}
+                            component={router.component}
+                            // render={(props) => <router.component {...props} />}
                         />
 
                     ))

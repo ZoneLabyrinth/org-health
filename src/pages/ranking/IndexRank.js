@@ -1,29 +1,12 @@
 import React from 'react';
 import TabBar from '@/TabBar';
 import SelectorTab from '../../components/SelectorTab';
+// import SelectorTab from 'selector-tab';
 import SwitchContent from '../../components/SwitchContent';
 import './IndexRank.less';
-import BaseTable from '@/BaseTable'
+import BaseTable from '@/BaseTable';
 
 function IndexRank() {
-    const data = [
-        {
-            area: '东北区',
-            number: 0.2,
-        },
-        {
-            area: '东南区',
-            number: 0.3,
-        },
-        {
-            area: '东区',
-            number: 0.4,
-        },
-        {
-            area: '北区',
-            number: 0.5,
-        },
-    ];
     const data1 = [
         {
             area: '区',
@@ -42,7 +25,7 @@ function IndexRank() {
             number: 0.5,
         },
     ];
-    
+
 
     return (
         <div className="indexRank-container">
@@ -61,7 +44,7 @@ function IndexRank() {
                     {/* <Charts classNames={'indexRank-content-charts'} data={data} /> */}
                     <BaseTable>
                         <li className="org-table-row">
-                            {data1.map((item,index)=>(
+                            {data1.map((item, index) => (
                                 <div key={index}>
                                     {item.area}
                                 </div>
