@@ -7,25 +7,39 @@ import './IndexRank.less';
 import BaseTable from '@/BaseTable';
 
 function IndexRank() {
-    const data1 = [
+    const data = [
         {
+            rank:'1',
             area: '区',
             number: 0.1,
+            areas:2
         },
         {
+            rank:'1',
             area: '东区',
-            number: 0.3,
+            number: 0.7,
+            areas:2
         },
         {
+            rank:'1',
             area: '区',
             number: 0.4,
+            areas:2
         },
         {
+            rank:'1',
             area: '北',
             number: 0.5,
+            areas:2
         },
     ];
-
+    
+    const titleList = [
+        { name: '排名', code: 'rank' },
+        { name: '大区', code: 'area' },
+        { name: '净贡献完成率', code: 'number',sort:'desc' },
+        { name: '较比波动', code: 'areas',sort:'desc'  },
+    ];
 
     return (
         <div className="indexRank-container">
@@ -42,15 +56,7 @@ function IndexRank() {
                 </div>
                 <div className="indexRank-content-container">
                     {/* <Charts classNames={'indexRank-content-charts'} data={data} /> */}
-                    <BaseTable>
-                        <li className="org-table-row">
-                            {data1.map((item, index) => (
-                                <div key={index}>
-                                    {item.area}
-                                </div>
-                            ))}
-                        </li>
-                    </BaseTable>
+                    <BaseTable titleList={titleList} data={data} />
                 </div>
             </div>
         </div>

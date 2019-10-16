@@ -20,7 +20,7 @@ function SwitchContent() {
             <div className={`org-switch-item ${curIndex ? 'org-switch-actived' : ''}`} />
             {
                 menu.map((item, index) => (
-                    <div onClick={switchItem.bind(this, index)} style={{ fontWeight: `${index === curIndex ? 600 : 400}` }} className="org-switch-item">
+                    <div key={index} onClick={switchItem.bind(this, index)} style={{ fontWeight: `${index === curIndex ? 600 : 400}` }} className="org-switch-item">
                         {item.label}
                     </div>
                 ))

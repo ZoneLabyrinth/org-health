@@ -93,7 +93,7 @@ SelectorTab.propTypes = {
     children: PropTypes.element,
 };
 SelectorTab.defaultProps = {
-    children: '',
+    children: null,
 };
 
 export default SelectorTab;
