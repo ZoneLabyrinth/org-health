@@ -1,17 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import './BaseTable.less';
 import PropTypes from 'prop-types';
-import { Icon } from "antd-mobile";
+import { Icon } from 'antd-mobile';
 
+/**
+ *
+ * @param {array} titleList 表头数据，[{title,code,sort}] [{标题，字段，是否排序}]
+ * @param {array} data body数据
+ */
 
 function BaseTable(props) {
     const { titleList, data } = props;
 
+    // 更新数据
+    const [update, setUpdate] = useState(false);
+
     const sortData = (item) => {
-        console.log(item)
-        item.sort = 'asc';
-        data.sort((a,b)=>a[item.code]-b[item.code])
-    }
+        item.sort = item.sort === 'asc' ? 'desc' : 'asc';
+
+        if (item.sort === 'asc') {
+            data.sort((a, b) => a[item.code] - b[item.code]);
+        } else {
+            data.sort((a, b) => b[item.code] - a[item.code]);
+        }
+        setUpdate(!update);
+    };
 
 
     return (
@@ -21,11 +34,10 @@ function BaseTable(props) {
                     {titleList.map((item, index) => (
                         <span onClick={item.sort ? sortData.bind(this, item) : null} key={index}>
                             {item.name}
-                            {item.sort === 'desc' ?
-                                <Icon className="org-table-icon" type="down" size="xxs" />
+                            {item.sort === 'desc'
+                                ? <Icon className="org-table-icon" type="down" size="xxs" />
                                 : item.sort === 'asc' ? <Icon className="org-table-icon" type="up" size="xxs" />
-                                    : null
-                            }
+                                    : null}
                         </span>
                     ))}
                 </li>
@@ -47,13 +59,13 @@ function BaseTable(props) {
     );
 }
 BaseTable.propTypes = {
-    children: PropTypes.element,
-    data: PropTypes.array
+    titleList: PropTypes.array.isRequired,
+    data: PropTypes.array,
 };
 
 BaseTable.defaultProps = {
-    children: null,
-    data: []
+    titleList: [],
+    data: [],
 };
 
 export default BaseTable;

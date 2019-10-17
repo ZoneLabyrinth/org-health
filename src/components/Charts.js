@@ -7,7 +7,7 @@ function Charts(props) {
         if (node !== null) {
             interval(node, props.data, 'percent');
         }
-    }, []);
+    }, [props.data]);
 
     return (
         <>
