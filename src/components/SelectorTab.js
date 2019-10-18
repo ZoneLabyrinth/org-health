@@ -3,8 +3,14 @@ import './SelectorTab.less';
 import { Icon } from 'antd-mobile';
 import PropTypes from 'prop-types';
 
+/**
+ *
+ * @param { children } 自定义子节点
+ * @param { onChange } 选择值
+ */
+
 function SelectorTab(props) {
-    const { children } = props;
+    const { children, onChange } = props;
     const menu = [
         [
             { label: '净贡献完成率', value: '' },
@@ -51,6 +57,7 @@ function SelectorTab(props) {
         result[curIndex] = item;
         setResult(result);
         setShow(false);
+        onChange(result);
     }
 
     return (
@@ -91,9 +98,11 @@ function SelectorTab(props) {
 
 SelectorTab.propTypes = {
     children: PropTypes.element,
+    onChange: PropTypes.func,
 };
 SelectorTab.defaultProps = {
     children: null,
+    onChange: null,
 };
 
 export default SelectorTab;

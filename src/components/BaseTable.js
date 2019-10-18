@@ -64,7 +64,6 @@ BaseTable.propTypes = {
 };
 
 BaseTable.defaultProps = {
-    titleList: [],
     data: [],
 };
 

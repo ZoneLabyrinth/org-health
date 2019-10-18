@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { DatePicker, List, Icon } from 'antd-mobile';
+import PropTypes from 'prop-types';
 import TabBar from '@/TabBar';
 import SelectorTab from '../../components/SelectorTab';
 // import SelectorTab from 'selector-tab';
 import SwitchContent from '../../components/SwitchContent';
 import './IndexRank.less';
 import BaseTable from '@/BaseTable';
-import { DatePicker, List, Icon } from 'antd-mobile'
 
 function IndexRank() {
     const data = [
@@ -13,25 +14,25 @@ function IndexRank() {
             rank: '1',
             area: '区',
             number: 0.1,
-            areas: 1
+            areas: 1,
         },
         {
             rank: '1',
             area: '东区',
             number: 0.7,
-            areas: 2
+            areas: 2,
         },
         {
             rank: '1',
             area: '区',
             number: 0.4,
-            areas: 4
+            areas: 4,
         },
         {
             rank: '1',
             area: '北',
             number: 0.5,
-            areas: 3
+            areas: 3,
         },
     ];
 
@@ -41,44 +42,55 @@ function IndexRank() {
         { name: '净贡献完成率', code: 'number', sort: 'desc' },
         { name: '较比波动', code: 'areas', sort: 'desc' },
     ];
-    function formatDate(date) {
-        /* eslint no-confusing-arrow: 0 */
-        const pad = n => n < 10 ? `0${n}` : n;
-        const dateStr = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
-        const timeStr = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
-        return `${dateStr} ${timeStr}`;
-    }
 
     const nowTimeStamp = Date.now();
     const now = new Date(nowTimeStamp);
 
-    const [date, setDate] = useState(now)
+    const [date, setDate] = useState(now);
 
     const CustomChildren = ({ extra, onClick, children }) => (
         <div
             onClick={onClick}
-            style={{textAlign:"center"}}
+            style={{ textAlign: 'center' }}
         >
-            <span style={{ color: '#888' }}>{extra}</span> &nbsp;
+            <span style={{ color: '#888' }}>{extra}</span>
+            {' '}
+            &nbsp;
             {children}
         </div>
     );
 
-    function handlerChange(date) {
-        setDate(date)
+    CustomChildren.propTypes = {
+        extra: PropTypes.string,
+        children: PropTypes.node,
+        onClick: PropTypes.func,
+    };
+
+    CustomChildren.defaultProps = {
+        extra: '',
+        children: null,
+        onClick: null,
+    };
+
+    function handlerChange(dates) {
+        setDate(dates);
     }
 
-    function format(date) {
+    function selectValue(value) {
+        console.log(value);
+    }
+
+    function format(dates) {
         /* eslint no-confusing-arrow: 0 */
-        const pad = n => n < 10 ? `0${n}` : n;;
-        return `${date.getFullYear()}-${pad(date.getMonth() + 1)}`;
+        const pad = (n) => n < 10 ? `0${n}` : n;
+        return `${dates.getFullYear()}-${pad(dates.getMonth() + 1)}`;
     }
 
     return (
         <div className="indexRank-container">
             <TabBar />
             <div className="indexRank-background">
-                <SelectorTab >
+                <SelectorTab onChange={(value) => selectValue(value)}>
                     <List className="date-picker-list" style={{ boder: 'none' }}>
                         <DatePicker
                             mode="month"
@@ -86,7 +98,7 @@ function IndexRank() {
                             extra="Optional"
                             format={format}
                             value={date}
-                            onChange={(date) => handlerChange(date)}
+                            onChange={(dates) => handlerChange(dates)}
                         >
                             <CustomChildren><Icon type="down" size="xxs" /></CustomChildren>
 
