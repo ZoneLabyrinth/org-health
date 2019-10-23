@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './TabBar.less';
 
-const nav = [
-    { title: '经营成果' },
-    { title: '经营客户' },
-    { title: '业务信息' },
-    { title: '人员管理' },
-];
-
-
-export default function TarBar() {
+function TabBar({ onChange, nav }) {
     const [data, setData] = useState(nav[0]);
 
     function selectItem(item) {
-        // console.log(item);
         setData(item);
+        onChange(item);
     }
-
-
     return (
         <div className="org-tab-container">
             {
@@ -30,3 +21,12 @@ export default function TarBar() {
         </div>
     );
 }
+TabBar.propTypes = {
+    nav: PropTypes.array.isRequired,
+    onChange: PropTypes.func,
+};
+TabBar.defaultProps = {
+    onChange: () => { },
+};
+
+export default TabBar;

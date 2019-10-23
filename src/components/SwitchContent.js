@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './SwitchContent.less';
 
-function SwitchContent() {
+function SwitchContent({ onChange }) {
     const menu = [
-        { label: '表', value: '' },
-        { label: '图', value: '' },
+        { label: '表', value: 'table' },
+        { label: '图', value: 'chart' },
     ];
 
     const [curIndex, setCurIndex] = useState(0);
 
-    function switchItem(index) {
+    function switchItem(index, item) {
         setCurIndex(index);
+        onChange(item);
     }
 
 
@@ -20,7 +22,7 @@ function SwitchContent() {
             <div className={`org-switch-item ${curIndex ? 'org-switch-actived' : ''}`} />
             {
                 menu.map((item, index) => (
-                    <div key={index} onClick={switchItem.bind(this, index)} style={{ fontWeight: `${index === curIndex ? 600 : 400}` }} className="org-switch-item">
+                    <div key={index} onClick={switchItem.bind(this, index, item)} style={{ fontWeight: `${index === curIndex ? 600 : 400}` }} className="org-switch-item">
                         {item.label}
                     </div>
                 ))
@@ -28,5 +30,12 @@ function SwitchContent() {
         </div>
     );
 }
+
+SwitchContent.propTypes = {
+    onChange: PropTypes.func,
+};
+SwitchContent.defaultProps = {
+    onChange: null,
+};
 
 export default SwitchContent;

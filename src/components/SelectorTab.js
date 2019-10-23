@@ -10,18 +10,7 @@ import PropTypes from 'prop-types';
  */
 
 function SelectorTab(props) {
-    const { children, onChange } = props;
-    const menu = [
-        [
-            { label: '净贡献完成率', value: '' },
-            { label: '考核收入完成率', value: '' },
-            { label: '（经营费用+外包成本）完成率', value: '' },
-        ],
-        [
-            { label: '大区排名', value: '' },
-            { label: '机构排名', value: '' },
-        ],
-    ];
+    const { children, onChange, menu } = props;
 
     // 设置默认值
     const initState = menu.map((item) => item[0]);
@@ -63,33 +52,35 @@ function SelectorTab(props) {
     return (
         <div className="select-tab-container">
             <div className="select-tab-wrapper">
-                {menu.map((item, index) => (
-                    <div onClick={clickMenu.bind(this, item, index)} key={index} className="select-tab-item">
-                        {result[index].label}
-                        {' '}
-                        <Icon type="down" className={`select-tab-rotate ${show && curIndex === index ? 'select-tab-icon' : ''}`} size="xxs" />
-                    </div>
-                ))}
+                {menu.length > 0
+                    && menu.map((item, index) => (
+                        <div onClick={clickMenu.bind(this, item, index)} key={index} className="select-tab-item">
+                            {result[index].label}
+                            {' '}
+                            <Icon type="down" className={`select-tab-rotate ${show && curIndex === index ? 'select-tab-icon' : ''}`} size="xxs" />
+                        </div>
+                    ))}
                 {children}
             </div>
             <div className={`select-tab-mengban  ${show ? 'select-tab-mbactived' : ''}`} />
             <ul className={`select-tab-selector ${show ? 'select-tab-actived' : ''}`}>
-                {selector.map((item, index) => (
-                    <li onClick={selectItem.bind(this, item)} key={index}>
+                {selector
+                    && selector.map((item, index) => (
+                        <li onClick={selectItem.bind(this, item)} key={index}>
 
-                        {/* 已选中 */}
-                        {
-                            item.label === result[curIndex].label
-                                ? (
-                                    <>
-                                        <span className="base-color">{item.label}</span>
-                                        <span><Icon className="base-color" type="check" /></span>
-                                    </>
-                                )
-                                : <span>{item.label}</span>
-                        }
-                    </li>
-                ))}
+                            {/* 已选中 */}
+                            {
+                                item.label === result[curIndex].label
+                                    ? (
+                                        <>
+                                            <span className="base-color">{item.label}</span>
+                                            <span><Icon className="base-color" type="check" /></span>
+                                        </>
+                                    )
+                                    : <span>{item.label}</span>
+                            }
+                        </li>
+                    ))}
             </ul>
         </div>
     );
@@ -97,10 +88,12 @@ function SelectorTab(props) {
 
 
 SelectorTab.propTypes = {
+    menu: PropTypes.array,
     children: PropTypes.element,
     onChange: PropTypes.func,
 };
 SelectorTab.defaultProps = {
+    menu: [],
     children: null,
     onChange: null,
 };

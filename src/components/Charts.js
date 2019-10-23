@@ -1,13 +1,15 @@
 import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
 import interval from 'src/f2/interval';
+import radar from 'src/f2/radar';
 
 function Charts(props) {
-    const { classNames } = props;
+    const { classNames, data } = props;
     const canvasEl = useCallback((node) => {
         if (node !== null) {
-            interval(node, props.data, 'percent');
+            radar(node, data);
         }
-    }, [props.data]);
+    }, [data]);
 
     return (
         <>
@@ -15,5 +17,14 @@ function Charts(props) {
         </>
     );
 }
+
+Charts.propTypes = {
+    classNames: PropTypes.string,
+    data: PropTypes.array,
+};
+Charts.defaultProps = {
+    classNames: null,
+    data: [],
+};
 
 export default Charts;

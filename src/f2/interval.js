@@ -1,13 +1,14 @@
 import F2 from '@antv/f2';
 import '@antv/f2/lib/geom/interval';
 
-export default function interval(id, data, type) {
+export default function interval(id, datas, type) {
     const { Global } = F2;
 
-    data = data || [{}];
+    const data = datas || [{}];
+    console.log(data)
 
     const key = [Object.keys(data[0])[0], Object.keys(data[0])[1]];
-
+    console.log(key)
     const chart = new F2.Chart({
         id,
         pixelRatio: window.devicePixelRatio,

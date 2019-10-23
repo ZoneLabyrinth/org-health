@@ -1,5 +1,7 @@
 import Home from 'pages/Home';
 import IndexRank from 'pages/ranking/IndexRank';
+import ScoreRank from 'pages/ranking/ScoreRank';
+import Region from 'pages/comparison/Region';
 
 const routers = [
     {
@@ -10,6 +12,14 @@ const routers = [
     {
         path: '/indexRank',
         component: IndexRank,
+    },
+    {
+        path: '/scoreRank',
+        component: ScoreRank,
+    },
+    {
+        path: '/region',
+        component: Region,
     },
 ];
 
